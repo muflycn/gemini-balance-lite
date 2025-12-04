@@ -6,4 +6,5 @@ async function denoHandleRequest(req: Request): Promise<Response> {
   return handleRequest(req);
 };
 
-Deno.serve({ port: 80 },denoHandleRequest); 
+const port = parseInt(Deno.env.get("PORT") || "8000");
+Deno.serve({ port }, denoHandleRequest);
